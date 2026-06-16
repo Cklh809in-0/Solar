@@ -488,7 +488,7 @@ const Footer: FC = () => {
   return (
     <footer className="bg-white dark:bg-dracula-bg border-t border-gray-200 dark:border-dracula-current py-6 sm:py-8 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto text-center">
-        <p className="text-gray-700 dark:text-dracula-comment">
+        <p className="text-gray-900 dark:text-dracula-comment">
           🌱 Sáng tạo Thanh thiếu niên Nhi đồng • Trường THCS Hòa Tân, Đồng Tháp
         </p>
       </div>
