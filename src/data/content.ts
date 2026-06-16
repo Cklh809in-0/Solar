@@ -54,6 +54,7 @@ export const authors: Author[] = [
     role: 'Lắp ráp linh kiện',
     class: 'Lớp 8A1',
     icon: '⚡',
+    image: 'hung.jpg',
     bio: 'Thiết kế mạch điện và tích hợp cảm biến ánh sáng.',
   },
   {
