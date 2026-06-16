@@ -382,28 +382,19 @@ const DescriptionSection: FC = () => (
       </h2>
       <div className="space-y-4 text-gray-700 dark:text-dracula-fg leading-relaxed">
         <p>
-          Mô hình cảm biến ánh sáng mặt trời thông minh là một dự án khoa học
-          tập trung vào việc tạo ra một hệ thống năng lượng tái tạo hiệu quả và
-          thông minh.
-        </p>
-        <p>
-          Hệ thống sử dụng tấm pin mặt trời để cung cấp năng lượng, kết hợp với
-          các cảm biến ánh sáng để phát hiện cường độ ánh sáng xung quanh, từ đó
-          điều khiển tự động việc sáng/tắt đèn LED.
+          Mô hình cảm biến ánh sáng Mặt Trời thông minh được thiết kế nhằm minh họa nguyên lý tận dụng năng lượng mặt trời hiệu quả hơn. Hệ thống sử dụng các cảm biến ánh sáng kết hợp với Arduino để nhận biết cường độ ánh sáng từ nhiều hướng khác nhau và tự động điều chỉnh tấm pin về phía có ánh sáng mạnh nhất. Qua đó, mô hình góp phần nâng cao hiệu suất thu nhận năng lượng và giúp học sinh tìm hiểu về tự động hóa, năng lượng tái tạo.
         </p>
         <div className="grid sm:grid-cols-2 gap-4 pt-2">
           <div className="bg-slate-800/40 dark:bg-dracula-current/40 rounded-lg p-4 border border-blue-500/10 dark:border-dracula-comment/20">
             <p className="font-bold text-yellow-300 dark:text-dracula-yellow mb-1">Ứng dụng</p>
             <p className="text-sm text-gray-300 dark:text-dracula-comment">
-              Chiếu sáng công cộng, hệ thống cảm ứng thông minh, tiết kiệm năng
-              lượng và bảo vệ môi trường.
+              Học tập STEM, nghiên cứu tự động hóa, năng lượng tái tạo, giáo dục ý thức tiết kiệm năng lượng và bảo vệ môi trường.
             </p>
           </div>
           <div className="bg-slate-800/40 dark:bg-dracula-current/40 rounded-lg p-4 border border-blue-500/10 dark:border-dracula-comment/20">
             <p className="font-bold text-green-300 dark:text-dracula-green mb-1">Thành phần chính</p>
             <p className="text-sm text-gray-300 dark:text-dracula-comment">
-              Tấm pin mặt trời, cảm biến ánh sáng, vi điều khiển, LED, mạch điện,
-              giá đỡ.
+              Arduino Uno, cảm biến ánh sáng, động cơ servo, tấm pin mặt trời mini, pin sạc, quạt mini và các linh kiện hỗ trợ khác.
             </p>
           </div>
         </div>
