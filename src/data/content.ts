@@ -57,10 +57,11 @@ export const authors: Author[] = [
     bio: 'Thiết kế mạch điện và tích hợp cảm biến ánh sáng.',
   },
   {
-    name: ' Nguyễn Huỳnh Tuấn Kiệt',
+    name: 'Nguyễn Huỳnh Tuấn Kiệt',
     role: 'Hỗ trợ kỹ thuật',
     class: 'Lớp 8A1',
-    image : 'kiet.jpg',
+    icon: '🔧',
+    image: 'kiet.jpg',
     bio: 'Hỗ trợ xây dựng khung mô hình và lắp ráp linh kiện.',
   },
   {
