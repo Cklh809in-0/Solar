@@ -43,7 +43,7 @@ export const productImages: ProductImage[] = [
 export const authors: Author[] = [
   {
     name: 'Đinh Hoàng Khôi',
-    role: 'Trưởng nhóm Dự án',
+    role: 'Lên ý tưởng, Thiết kế web',
     class: 'Lớp 8A1',
     icon: '🔬',
     image: 'khoi.jpg',
@@ -51,7 +51,7 @@ export const authors: Author[] = [
   },
   {
     name: 'Nguyễn Hà Gia Hưng',
-    role: 'Kỹ sư Điện tử',
+    role: 'Lắp ráp linh kiện',
     class: 'Lớp 8A1',
     icon: '⚡',
     bio: 'Thiết kế mạch điện và tích hợp cảm biến ánh sáng.',
