@@ -488,9 +488,7 @@ const Footer: FC = () => (
   <footer className="border-t border-gray-200 dark:border-dracula-current py-6 sm:py-8 px-4 sm:px-6">
     <div className="max-w-7xl mx-auto text-center text-gray-500 dark:text-dracula-comment">
       <p>🌱 Sáng tạo Thanh thiếu niên Nhi đồng • Trường THCS Hòa Tân, Đồng Tháp</p>
-      <p className="mt-2 text-xs sm:text-sm">
-        Kỳ Hạn: 2024-2025 • Mục Tiêu: Tạo Giải Pháp Năng Lượng Bền Vững
-      </p>
+
     </div>
   </footer>
 )
