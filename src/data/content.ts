@@ -69,6 +69,7 @@ export const authors: Author[] = [
     name: 'Nguyễn Huy Thông',
     role: 'Hỗ trợ kỹ thuật',
     class: 'Lớp 8A1',
+    image: 'thong.jpg',
     icon: '💻',
     bio: 'Hỗ trợ viết code và xử lý tín hiệu cảm biến.',
   },
