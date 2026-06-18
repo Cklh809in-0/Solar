@@ -1,13 +1,7 @@
 import { useState, useEffect, useCallback, useRef, type FC } from 'react'
 import { motion, useMotionValue, useSpring } from 'framer-motion'
-import { useTheme } from '../contexts/ThemeContext'
-
-// ---------------------------------------------------------------------------
-// Cursor glow (spotlight following mouse)
-// ---------------------------------------------------------------------------
 
 const CursorGlow: FC = () => {
-  const { theme } = useTheme()
   const mouseX = useMotionValue(-200)
   const mouseY = useMotionValue(-200)
   const springX = useSpring(mouseX, { stiffness: 100, damping: 30 })
@@ -22,41 +16,33 @@ const CursorGlow: FC = () => {
     return () => window.removeEventListener('mousemove', handleMouse)
   }, [mouseX, mouseY])
 
-  if (theme !== 'dracula') return null
-
   return (
     <motion.div
       className="fixed pointer-events-none z-[9999]"
       style={{
         left: springX,
         top: springY,
-        width: 400,
-        height: 400,
+        width: 300,
+        height: 300,
         transform: 'translate(-50%, -50%)',
         background:
-          'radial-gradient(circle, rgba(139, 233, 253, 0.06) 0%, transparent 60%)',
+          'radial-gradient(circle, rgba(150, 150, 150, 0.06) 0%, transparent 60%)',
         borderRadius: '50%',
       }}
     />
   )
 }
 
-// ---------------------------------------------------------------------------
-// Ripple on click
-// ---------------------------------------------------------------------------
-
 interface Ripple {
   id: number
   x: number
   y: number
   size: number
-  color: string
 }
 
 const RippleEffect: FC = () => {
   const [ripples, setRipples] = useState<Ripple[]>([])
   const nextId = useRef(0)
-  const { theme } = useTheme()
 
   const addRipple = useCallback((e: MouseEvent) => {
     const ripple: Ripple = {
@@ -64,13 +50,12 @@ const RippleEffect: FC = () => {
       x: e.clientX,
       y: e.clientY,
       size: Math.random() * 40 + 20,
-      color: theme === 'dracula' ? 'rgba(139, 233, 253, 0.15)' : 'rgba(251, 191, 36, 0.12)',
     }
     setRipples((prev) => [...prev, ripple])
     setTimeout(() => {
       setRipples((prev) => prev.filter((r) => r.id !== ripple.id))
     }, 800)
-  }, [theme])
+  }, [])
 
   useEffect(() => {
     window.addEventListener('click', addRipple)
@@ -87,7 +72,7 @@ const RippleEffect: FC = () => {
             left: r.x,
             top: r.y,
             transform: 'translate(-50%, -50%)',
-            border: `1px solid ${r.color}`,
+            border: '1px solid rgba(150, 150, 150, 0.2)',
           }}
           initial={{ width: 0, height: 0, opacity: 1 }}
           animate={{
@@ -102,23 +87,17 @@ const RippleEffect: FC = () => {
   )
 }
 
-// ---------------------------------------------------------------------------
-// Cursor trail particles
-// ---------------------------------------------------------------------------
-
 interface TrailParticle {
   id: number
   x: number
   y: number
   size: number
-  color: string
 }
 
 const CursorTrail: FC = () => {
   const [trail, setTrail] = useState<TrailParticle[]>([])
   const nextId = useRef(0)
   const lastTime = useRef(0)
-  const { theme } = useTheme()
 
   useEffect(() => {
     const handleMouse = (e: MouseEvent) => {
@@ -131,14 +110,6 @@ const CursorTrail: FC = () => {
         x: e.clientX,
         y: e.clientY,
         size: Math.random() * 4 + 2,
-        color:
-          theme === 'dracula'
-            ? ['#8be9fd', '#bd93f9', '#50fa7b', '#ffb86c'][
-                Math.floor(Math.random() * 4)
-              ]
-            : ['#fbbf24', '#60a5fa', '#34d399', '#a78bfa'][
-                Math.floor(Math.random() * 4)
-              ],
       }
       setTrail((prev) => [...prev.slice(-18), particle])
 
@@ -149,7 +120,7 @@ const CursorTrail: FC = () => {
 
     window.addEventListener('mousemove', handleMouse, { passive: true })
     return () => window.removeEventListener('mousemove', handleMouse)
-  }, [theme])
+  }, [])
 
   return (
     <div className="fixed inset-0 pointer-events-none z-[9997]">
@@ -162,11 +133,11 @@ const CursorTrail: FC = () => {
             top: p.y,
             width: p.size,
             height: p.size,
-            backgroundColor: p.color,
-            boxShadow: `0 0 ${p.size * 2}px ${p.color}60`,
+            backgroundColor: 'rgba(150, 150, 150, 0.4)',
+            boxShadow: `0 0 ${p.size * 2}px rgba(150, 150, 150, 0.2)`,
             transform: 'translate(-50%, -50%)',
           }}
-          initial={{ opacity: 0.8, scale: 1 }}
+          initial={{ opacity: 0.6, scale: 1 }}
           animate={{ opacity: 0, scale: 0 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
         />
@@ -174,10 +145,6 @@ const CursorTrail: FC = () => {
     </div>
   )
 }
-
-// ---------------------------------------------------------------------------
-// Parallax effect on cards
-// ---------------------------------------------------------------------------
 
 export const ParallaxCard: FC<{
   children: React.ReactNode
@@ -225,10 +192,6 @@ export const ParallaxCard: FC<{
     </motion.div>
   )
 }
-
-// ---------------------------------------------------------------------------
-// Export all
-// ---------------------------------------------------------------------------
 
 export const MouseEffects: FC = () => (
   <>

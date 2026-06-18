@@ -26,7 +26,7 @@ export const productImages: ProductImage[] = [
   {
     url: '2aOboQdwEWqOj5eTc9Xx3nKDuytIz4xfrZmjHWzo.jpg',
     title: 'Thiết Bị Hoàn Chỉnh',
-    desc: 'Mô hình cảm biến cường độ ánh sáng mặt trời với điện trở quang LDR',
+    desc: 'Mô hình cảm biến ánh sáng mặt trời thông minh',
   },
   {
     url: '2aOboQdwD4l0wiReLiJDdBVVusph3qY4Q20aFmKW.jpg',
@@ -68,6 +68,7 @@ export const authors: Author[] = [
   {
     name: 'Nguyễn Huy Thông',
     role: 'Hỗ trợ kỹ thuật',
+    image: 'thong.jpg',
     class: 'Lớp 8A1',
     image: 'thong.jpg',
     icon: '💻',
