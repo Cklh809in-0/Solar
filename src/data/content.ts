@@ -1,6 +1,11 @@
 import { Sun, Zap, Lightbulb, Leaf, Cpu } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 
+export function assetPath(path: string): string {
+  const base = import.meta.env.BASE_URL
+  return `${base.replace(/\/$/, '')}/${path}`
+}
+
 export interface ProductImage {
   url: string
   title: string
@@ -24,17 +29,17 @@ export interface Feature {
 
 export const productImages: ProductImage[] = [
   {
-    url: '2aOboQdwEWqOj5eTc9Xx3nKDuytIz4xfrZmjHWzo.jpg',
+    url: assetPath('2aOboQdwEWqOj5eTc9Xx3nKDuytIz4xfrZmjHWzo.jpg'),
     title: 'Thiết Bị Hoàn Chỉnh',
     desc: 'Mô hình cảm biến ánh sáng mặt trời thông minh',
   },
   {
-    url: '2aOboQdwD4l0wiReLiJDdBVVusph3qY4Q20aFmKW.jpg',
+    url: assetPath('2aOboQdwD4l0wiReLiJDdBVVusph3qY4Q20aFmKW.jpg'),
     title: 'Chi Tiết Điện Tử',
     desc: 'Thiết bị có tấm pin mặt trời, mạch điện và các linh kiện',
   },
   {
-    url: '2aOboQdwAtk8evPyJeqAt7VYs2lHlKgpNKThBvn6.jpg',
+    url: assetPath('2aOboQdwAtk8evPyJeqAt7VYs2lHlKgpNKThBvn6.jpg'),
     title: 'Bộ Dự Án Hoàn Chỉnh',
     desc: 'Toàn bộ hệ thống với quạt, tài liệu và các thành phần tích hợp',
   },
@@ -46,7 +51,7 @@ export const authors: Author[] = [
     role: 'Lên ý tưởng, Thiết kế web',
     class: 'Lớp 8A1',
     icon: '🔬',
-    image: 'khoi.jpg',
+    image: assetPath('khoi.jpg'),
     bio: 'Phụ trách nghiên cứu và phát triển ý tưởng chính của dự án.',
   },
   {
@@ -54,7 +59,7 @@ export const authors: Author[] = [
     role: 'Lắp ráp linh kiện',
     class: 'Lớp 8A1',
     icon: '⚡',
-    image: 'hung.jpg',
+    image: assetPath('hung.jpg'),
     bio: 'Thiết kế mạch điện và tích hợp cảm biến ánh sáng.',
   },
   {
@@ -62,15 +67,14 @@ export const authors: Author[] = [
     role: 'Hỗ trợ kỹ thuật',
     class: 'Lớp 8A1',
     icon: '🔧',
-    image: 'kiet.jpg',
+    image: assetPath('kiet.jpg'),
     bio: 'Hỗ trợ xây dựng khung mô hình và lắp ráp linh kiện.',
   },
   {
     name: 'Nguyễn Huy Thông',
     role: 'Hỗ trợ kỹ thuật',
-    image: 'thong.jpg',
     class: 'Lớp 8A1',
-    image: 'thong.jpg',
+    image: assetPath('thong.jpg'),
     icon: '💻',
     bio: 'Hỗ trợ viết code và xử lý tín hiệu cảm biến.',
   },
