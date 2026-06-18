@@ -64,8 +64,8 @@ const StatsSection: FC = () => (
     viewport={{ once: true, margin: '-80px' }}
     transition={{ duration: 0.5 }}
   >
-    <div className="bg-gray-100 dark:bg-gray-900/50 rounded-2xl p-8 sm:p-12 border border-gray-200 dark:border-gray-800">
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-8">
+    <div className="bg-gray-100 dark:bg-gray-900/50 rounded-2xl p-6 sm:p-12 border border-gray-200 dark:border-gray-800">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
         <AnimatedCounter to={4} label="Cảm biến LDR" />
         <AnimatedCounter to={1} suffix="" label="Arduino Uno" />
         <AnimatedCounter to={3} label="Động cơ Servo" />
@@ -146,11 +146,12 @@ const Navbar: FC = () => {
     <nav className="fixed top-0 w-full z-50 bg-white/70 dark:bg-neutral-950/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
         <motion.div
-          className="flex items-center gap-2 text-xl sm:text-2xl font-bold text-gray-800 dark:text-gray-100"
+          className="flex items-center gap-1 sm:gap-2 text-lg sm:text-2xl font-bold text-gray-800 dark:text-gray-100"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
         >
-          ☀️ Smart Solar Sensor
+          <span className="text-xl sm:text-2xl">☀️</span>
+          <span className="truncate">Smart Solar Sensor</span>
         </motion.div>
 
         <div className="flex items-center gap-4">
@@ -276,7 +277,7 @@ const ImageCarousel: FC = () => {
         <div className="flex items-center justify-between">
           <motion.button
             onClick={prev}
-            className="p-2 rounded-lg bg-gray-700 hover:bg-gray-600 text-white transition-colors"
+            className="p-3 sm:p-2 rounded-lg bg-gray-700 hover:bg-gray-600 text-white transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             aria-label="Ảnh trước"
@@ -288,7 +289,7 @@ const ImageCarousel: FC = () => {
 
           <motion.button
             onClick={next}
-            className="p-2 rounded-lg bg-gray-700 hover:bg-gray-600 text-white transition-colors"
+            className="p-3 sm:p-2 rounded-lg bg-gray-700 hover:bg-gray-600 text-white transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             aria-label="Ảnh sau"
@@ -309,7 +310,7 @@ const FeatureCard: FC<{ feature: Feature; index: number }> = memo(
   ({ feature: { icon: Icon, title, description }, index }) => (
     <ParallaxCard strength={6}>
       <motion.div
-        className="group bg-white dark:bg-gray-800 p-6 sm:p-8 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-xl hover:border-gray-300 dark:hover:border-gray-500 transition-all duration-300"
+        className="group bg-white dark:bg-gray-800 p-5 sm:p-8 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-xl hover:border-gray-300 dark:hover:border-gray-500 transition-all duration-300"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-50px' }}
@@ -424,7 +425,7 @@ const AuthorShowcase: FC = () => {
         <div className="flex items-center justify-between">
           <motion.button
             onClick={prevAuthor}
-            className="p-2 rounded-lg bg-gray-700 hover:bg-gray-600 dark:bg-gray-700/60 dark:hover:bg-gray-700 text-white transition-colors"
+            className="p-3 sm:p-2 rounded-lg bg-gray-700 hover:bg-gray-600 dark:bg-gray-700/60 dark:hover:bg-gray-700 text-white transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >
@@ -435,7 +436,7 @@ const AuthorShowcase: FC = () => {
 
           <motion.button
             onClick={nextAuthor}
-            className="p-2 rounded-lg bg-gray-700 hover:bg-gray-600 dark:bg-gray-700/60 dark:hover:bg-gray-700 text-white transition-colors"
+            className="p-3 sm:p-2 rounded-lg bg-gray-700 hover:bg-gray-600 dark:bg-gray-700/60 dark:hover:bg-gray-700 text-white transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >
@@ -495,13 +496,13 @@ const AuthorGrid: FC = () => {
 
 const DescriptionSection: FC = () => (
   <motion.section
-    className="px-4 sm:px-6 max-w-3xl mx-auto mb-16"
+    className="px-4 sm:px-6 max-w-3xl mx-auto mb-12 sm:mb-16"
     initial={{ opacity: 0, y: 40 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, margin: '-100px' }}
     transition={{ duration: 0.6 }}
   >
-    <div className="bg-gray-800/40 dark:bg-gray-800/70 rounded-2xl p-6 sm:p-8 border border-gray-600/30">
+    <div className="bg-gray-800/40 dark:bg-gray-800/70 rounded-2xl p-5 sm:p-8 border border-gray-600/30">
       <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-gray-700 dark:text-gray-200">
         Giới Thiệu Dự Án
       </h2>
@@ -540,7 +541,7 @@ const VideoSection: FC = () => {
 
   return (
     <motion.section
-      className="px-4 sm:px-6 max-w-4xl mx-auto mb-16"
+      className="px-4 sm:px-6 max-w-4xl mx-auto mb-12 sm:mb-16"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-100px' }}
@@ -576,9 +577,9 @@ const VideoSection: FC = () => {
               whileTap={{ scale: 0.95 }}
               aria-label="Phát video"
             >
-              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gray-700 flex items-center justify-center shadow-lg shadow-gray-700/40 group-hover:shadow-gray-700/60 transition-shadow">
+              <div className="w-20 h-20 sm:w-20 sm:h-20 rounded-full bg-gray-700 flex items-center justify-center shadow-lg shadow-gray-700/40 group-hover:shadow-gray-700/60 transition-shadow">
                 <svg
-                  className="w-6 h-6 sm:w-8 sm:h-8 text-white ml-1"
+                  className="w-8 h-8 sm:w-8 sm:h-8 text-white ml-1"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -738,7 +739,7 @@ const SmartSolarSensor: FC = () => {
 
         {/* Features */}
         <ParallaxSection speed={-0.08}>
-          <section id="features" className="px-4 sm:px-6 max-w-7xl mx-auto mb-12 sm:mb-16">
+          <section id="features" className="px-4 sm:px-6 max-w-7xl mx-auto mb-10 sm:mb-16">
             <div className="text-center mb-8 sm:mb-12">
               <motion.h2
                 className="text-2xl sm:text-4xl font-bold text-gray-700 dark:text-gray-200 inline-block relative"
@@ -761,7 +762,7 @@ const SmartSolarSensor: FC = () => {
 
         {/* Authors */}
         <ParallaxSection speed={0.12}>
-          <section id="authors" className="px-4 sm:px-6 max-w-7xl mx-auto mb-12 sm:mb-16">
+          <section id="authors" className="px-4 sm:px-6 max-w-7xl mx-auto mb-10 sm:mb-16">
             <div className="text-center mb-8 sm:mb-12">
               <motion.h2
                 className="text-2xl sm:text-4xl font-bold text-gray-700 dark:text-gray-200 inline-block relative"
@@ -796,7 +797,7 @@ const SmartSolarSensor: FC = () => {
         {/* Scroll to top */}
         <motion.button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="fixed bottom-6 right-6 z-40 p-3.5 rounded-full bg-gray-800 dark:bg-gray-700 text-white shadow-xl hover:shadow-2xl hover:bg-gray-700 dark:hover:bg-gray-600 transition-all"
+          className="fixed bottom-6 right-6 z-40 p-4 sm:p-3.5 rounded-full bg-gray-800 dark:bg-gray-700 text-white shadow-xl hover:shadow-2xl hover:bg-gray-700 dark:hover:bg-gray-600 transition-all min-w-[44px] min-h-[44px] flex items-center justify-center"
           whileHover={{ scale: 1.15, y: -2 }}
           whileTap={{ scale: 0.9 }}
           aria-label="Lên đầu trang"

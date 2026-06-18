@@ -8,6 +8,11 @@
     scrollbar-color: #6b7280 transparent;
   }
 
+  button, a, [role="button"] {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
   *::-webkit-scrollbar {
     width: 6px;
   }
