@@ -17,6 +17,7 @@ const AnimatedCounter: FC<{ from?: number; to: number; suffix?: string; label: s
   const [count, setCount] = useState(from)
   const ref = useRef<HTMLDivElement>(null)
   const hasAnimated = useRef(false)
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
   useEffect(() => {
     const el = ref.current
@@ -29,11 +30,12 @@ const AnimatedCounter: FC<{ from?: number; to: number; suffix?: string; label: s
           const steps = 30
           const increment = (to - from) / steps
           let current = from
-          const timer = setInterval(() => {
+          timerRef.current = setInterval(() => {
             current += increment
             if (current >= to) {
               setCount(to)
-              clearInterval(timer)
+              clearInterval(timerRef.current!)
+              timerRef.current = null
             } else {
               setCount(Math.round(current))
             }
@@ -43,7 +45,13 @@ const AnimatedCounter: FC<{ from?: number; to: number; suffix?: string; label: s
       { threshold: 0.5 },
     )
     observer.observe(el)
-    return () => observer.disconnect()
+    return () => {
+      observer.disconnect()
+      if (timerRef.current) {
+        clearInterval(timerRef.current)
+        timerRef.current = null
+      }
+    }
   }, [from, to])
 
   return (
@@ -623,69 +631,6 @@ const ParallaxSection: FC<{ children: React.ReactNode; speed?: number; className
 }
 
 // ---------------------------------------------------------------------------
-// Typewriter effect
-// ---------------------------------------------------------------------------
-
-const Typewriter: FC<{ text: string; speed?: number }> = ({ text, speed = 40 }) => {
-  const [displayed, setDisplayed] = useState('')
-  const [started, setStarted] = useState(false)
-  const ref = useRef<HTMLSpanElement>(null)
-
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setStarted(true)
-          observer.disconnect()
-        }
-      },
-      { threshold: 0.5 },
-    )
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [])
-
-  useEffect(() => {
-    if (!started) return
-    let i = 0
-    let dir = 1
-    let paused = false
-    const timer = setInterval(() => {
-      if (paused) return
-      i += dir
-      if (i > text.length) {
-        dir = -1
-        i = text.length
-        paused = true
-        setTimeout(() => { paused = false }, 10000)
-        return
-      } else if (i < 0) {
-        dir = 1
-        i = 0
-        paused = true
-        setTimeout(() => { paused = false }, 2000)
-        return
-      }
-      setDisplayed(text.slice(0, i))
-    }, speed)
-    return () => clearInterval(timer)
-  }, [started, text, speed])
-
-  return (
-    <span ref={ref}>
-      {displayed}
-      <motion.span
-        className="inline-block w-[2px] h-[1.1em] bg-gray-400 dark:bg-gray-500 ml-0.5 align-middle"
-        animate={{ opacity: [1, 0] }}
-        transition={{ duration: 0.6, repeat: Infinity, repeatType: 'reverse' }}
-      />
-    </span>
-  )
-}
-
-// ---------------------------------------------------------------------------
 // Footer
 // ---------------------------------------------------------------------------
 
@@ -726,9 +671,7 @@ const SmartSolarSensor: FC = () => {
               <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-4 text-gray-800 dark:text-gray-100">
                 Mô Hình Cảm Biến Ánh Sáng Mặt Trời Thông Minh
               </h1>
-              <p className="text-base sm:text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto min-h-[1.5em]">
-                <Typewriter text="Một giải pháp năng lượng tái tạo với công nghệ cảm biến hiện đại để tối ưu hóa sử dụng năng lượng" />
-              </p>
+
             </motion.div>
 
             <ImageCarousel />

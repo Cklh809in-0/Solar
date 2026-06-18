@@ -95,7 +95,6 @@ const ShootingStar: FC<{ delay: number; top: number; duration: number }> = ({
   <motion.div
     className="absolute w-[1.5px] h-[1.5px] rounded-full"
     style={{
-      left: '-10px',
       top: `${top}%`,
       background:
         'linear-gradient(to right, transparent, rgba(200,200,200,0.7), rgba(200,200,200,0))',
@@ -188,7 +187,7 @@ const OrbitalRings: FC = () => (
       >
         <div
           className="w-1.5 h-1.5 rounded-full bg-gray-400/30 dark:bg-gray-300/30 absolute"
-          style={{ top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}
+          style={{ top: '0', left: '50%', transform: 'translate(-50%, -50%)' }}
         />
       </motion.div>
     ))}
